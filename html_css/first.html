@@ -68,10 +68,94 @@
 		</p>
 		
 		<!-- Table in HTML -->
+		<table border="1">
+			<thead>
+			<tr>
+				<th>Name</th>
+				<th>Address</th>
+				<th>Mobile</th>
+			</tr>
+			</thead>
+			
+			<tfoot>
+				
+			</tfoot>
+			
+			<tbody>
+			<tr>
+				<td>Ram</td>
+				<td>Kathmandu</td>
+				<td>9812345678</td>
+			</tr>
+			<tr>
+				<td>Hari</td>
+				<td>Lalitpur</td>
+				<td>9876543210</td>
+			</tr>
+			</tbody>
+		</table>
+		
+		<hr />
+		
+		<table border="1" width="200">
+			<tr>
+				<td rowspan="3">a</td>
+				<td>b</td>
+				<td colspan="2">c</td>
+			</tr>
+			<tr>
+				<td>f</td>
+				<td>g</td>
+				<td>h</td>
+			</tr>
+			<tr>
+				<td>j</td>
+				<td colspan="2" rowspan="2">k</td>
+			</tr>
+			<tr>
+				<td>m</td>
+				<td>n</td>
+			</tr>
+		</table>
 		
 		
+		<!-- 
+		Multimedia in HTML 
+		------------------
+		1. Image
+			I) Bitmap Images
+				a. gif - 8
+				b. png - 8, 16, 24 : lossless compression
+				c. jpg/jpeg - 24
+		2. Audio
+		3. Video
+		-->
+		<img src="himal.jpg" alt="Himal Image" height="100" width="100" />
 		
-		<img src="himal.jpg" alt="Himal Image" />
+		<audio controls>
+			<source src="audio.mp3" type="audio/mp3" />
+			<source src="audio.ogg" type="audio/ogg" />
+		</audio>
 		
+		<video controls height="300" width="500">
+			<source src="video.mp4" type="video/mp4" />
+			<source src="video.ogg" type="video/ogg" />
+		</video>
+		
+		
+		<iframe width="727" height="409" src="https://www.youtube.com/embed/dL6qHgjQ-lc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		
+		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28259.63732371881!2d85.31157489174295!3d27.70324495725481!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb19a851d21aa7%3A0x1514f22a42153099!2sShanker%20Dev%20Campus.!5e0!3m2!1sen!2snp!4v1654054625341!5m2!1sen!2snp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+	
+		<!-- 
+		Hyperlinks in HTML 
+		-------------------
+		Anchor Tag(a)
+		1. Absolute URL
+		2. Relative URL
+		3. In Page
+		-->
+		<a href="#">Click</a>
+	
 	</body>
 </html>
