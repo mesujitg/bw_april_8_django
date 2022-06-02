@@ -6,9 +6,114 @@
 	</head>
 	
 	<body>
+	
+		<!-- forms in HTML -->
+		<form method="POST" action="pages/url" enctype="multipart/form-data">
+			<p>
+				<label>Name</label>
+				<input type="text" name="Fullname" required 
+				maxlength="5" placeholder="Enter Name" />
+			</p>
+			
+			<p>
+				<label>Address</label>
+				<input type="text" name="address" value="Ktm" />
+			</p>
+			
+			<p>
+				<label>DoB</label>
+				<input type="date" name="dob" max="2002-01-01" />
+			</p>
+			
+			<p>
+				<label>Gender</label>
+				<input type="radio" name="gender" value="Male" id="male" />
+				<label for="male">Male</label>
+				<input type="radio" name="gender" value="Female" id="female" checked />
+				<label for="female">Female</label>
+				<input type="radio" name="gender"  value="Other" id="other" />
+				<label for="other">Other</label>
+			</p>
+			
+			
+			<p>
+				<label>Hobbies</label>
+				<input type="checkbox" name="hobbies" value="Music" />
+				<label>Music</label>
+				<input type="checkbox" name="hobbies" value="Travel" />
+				<label>Travel</label>
+				<input type="checkbox" name="hobbies"  value="Other" checked />
+				<label>Other</label>
+			</p>
+			
+			<p>
+				<label>Country</label>
+				<select name="country">
+					<option value="">-- Choose Country --</option>
+					<option value="Nepal">Nepal</option>
+					<option value="China">China</option>
+					<option value="India">India</option>
+					<option value="US" selected>US</option>
+				</select>
+			</p>
+			
+			<p>
+				<label>Email</label>
+				<input type="email" name="email" />
+			</p>
+			
+			<p>
+				<label>Password</label>
+				<input type="password" name="password" />
+			</p>
+			
+			<p>
+				<label>Phone</label>
+				<input type="number" name="phone" 
+				max="5" min="-5" />
+			</p>
+			
+			<p>
+				<label>Website</label>
+				<input type="url" name="website" />
+			</p>
+			
+			<p>
+				<label>Image</label>
+				<input type="file" name="image" />
+			</p>
+			
+			<p>
+				<label>Range</label>
+				<input type="range" name="range" />
+			</p>
+			
+			<p>
+				<label>Comment</label>
+				<textarea name="comment" rows="5" col="10">dgsdgs</textarea>
+			</p>
+			
+			<p>
+				<input type="submit" value="Submit" name="btnReg" />
+				<input type="button" value="Click" />
+				<input type="reset" />
+			</p>
+			
+			<p>
+				<button type="submit" name="btnReg">Submit</button>
+				<button type="submit">
+					<img src="lens.png" height="20" width="20" />
+				</button>
+				<button type="submit">Reset</button>
+			</p>
+			
+		</form>
+	
+	
+	
 		<!--  Heading Tags -->
-		<h1>HTML</h1>
-		<h2>HTML</h2>
+		<h1 id="top" class="my_headings">HTML</h1>
+		<h2 id="second" class="my_headings">HTML</h2>
 		<h3>HTML</h3>
 		<h4>HTML</h4>
 		<h5>HTML</h5>
@@ -152,10 +257,27 @@
 		-------------------
 		Anchor Tag(a)
 		1. Absolute URL
+		full url of a separate domain with portocol 
+		
 		2. Relative URL
+		different pages/url of same domain
+		
 		3. In Page
+		to different component within the same page 
+		identified by "id"
 		-->
-		<a href="#">Click</a>
+		<a href="https://www.google.com/" target="_blank">Google</a>
+		<a href="https://www.bbc.com/" target="_blank">BBC News</a>
 	
+		<a href="second.html">Second Page</a>
+		<a href="about/third.html">Third Page</a>
+		
+		<a href="#top">Go to Top</a>
+		
+		
+		<hr />
+		
+		
+		
 	</body>
 </html>
