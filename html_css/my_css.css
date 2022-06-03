@@ -1,0 +1,58 @@
+/* text/font properties */
+h1
+{
+	color:blue !important;
+	font-size: 72px;
+	font-family: 'Monotype Corsiva';
+	text-decoration: underline; /* line-through */
+	text-align: center;
+	letter-spacing: 20px;
+	text-shadow: red 5px 5px 5px; 
+	/* color x-dist y-dist blur-radius */
+}
+
+p
+{
+	font-family: Arial;
+	font-weight: bold; /* 100-800 */
+	font-style: italic;
+	text-align: justify;
+	text-indent: 50px;
+	text-transform: capitalize; /* lowercase/capitalize */
+	line-height: 20px;
+	word-spacing: 30px;
+}
+
+/* box properties */
+h2
+{
+	color: #ffffff;
+	background-color: green;
+	/* margin: 15px; */
+	/* margin: 100px 50px; */
+	margin: auto 0 20px 0; /* T R B L */
+	/*
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: 50px;
+	margin-right: 50px;
+	*/
+	padding: 10px;
+}
+.mydiv
+{
+	height: 200px;
+	width: 1000px;
+	float: left;
+}
+#first
+{
+	background-color: red;
+	border: 15px inset pink;
+	/* dotted dashed double inset outset */
+}
+
+#second
+{
+	background-color: blue;
+}
