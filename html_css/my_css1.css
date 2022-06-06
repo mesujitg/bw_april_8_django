@@ -1,0 +1,98 @@
+#main
+{
+	width: 80%;
+	margin: 0 auto;
+}
+header
+{
+	background: red;
+	width: 100%;
+	float: left;
+}
+.subheader
+{
+	float: left;
+}
+#header1
+{
+	background: blue;
+	width: 20%;
+}
+#header1 img
+{
+	height: 100px;
+	width: 100px;
+	border-radius: 50%;
+	margin: 10px;
+}
+#header2
+{
+	background: green;
+	height: 100px;
+	width: 47%;
+}
+#header2 h1
+{
+	color: #ffffff;
+}
+#header3
+{
+	background: blue;
+	height: 100px;
+	width: 33%;
+}
+
+@media screen and (max-width: 768px)
+{
+	#header1, #header2, #header3
+	{
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: 582px)
+{
+	#header1, #header2, #header3
+	{
+		width: 100%;
+	}
+}
+
+
+nav
+{
+	background: orange;
+	height: 50px;
+	width: 100%;
+	float: left;
+}
+
+#slider
+{
+	background: grey;
+	height: 400px;
+	width: 100%;
+	float: left;
+}
+
+#display
+{
+	background: brown;
+	width: 100%;
+	float: left;
+}
+.subdisplay
+{
+	background: yellow;
+	height: 380px;
+	width: 50%;
+	float: left;
+}
+
+footer
+{
+	background: red;
+	height: 30px;
+	width: 100%;
+	float: left;
+}
