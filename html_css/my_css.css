@@ -59,3 +59,16 @@ h2
 	background-color: blue;
 	padding: 20px;
 }
+
+
+input
+{
+	background: pink;
+	color: blue;
+	width: 200px;
+}
+
+input[type="radio"], input[type="checkbox"]
+{
+	width: auto;
+}
