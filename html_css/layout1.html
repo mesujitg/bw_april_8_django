@@ -53,7 +53,14 @@
 			</section>
 			
 			<section id="display">
-				<div class="subdisplay"></div>
+				<div class="subdisplay">
+					<form method="post">
+					<input type="text" 
+					onkeyup="document.getElementsByTagName('h1')[1].innerHTML = this.value;" 
+					name="test" />
+					<input type="submit" onclick="return confirm('Are you sure')" value="Delete" />
+					</form>
+				</div>
 				<div class="subdisplay"></div>
 				<div class="subdisplay"></div>
 			</section>
@@ -69,6 +76,57 @@
 			<aside></aside>
 			-->
 		</div>
+		
+		
+		<script>
+                // alert('Hello World!');
+                // document.write('Hello World!');
+                // console.log('Hello World!');
+				// document.getElementById('test').innerHTML = 'New <i>Text</i>';
+                // document.getElementById('test').align = 'center';
+                // document.getElementById('test').setAttribute('class', 'my_class');
+                // a = document.getElementById('test').getAttribute('id');
+                // document.getElementById('test').style.color = 'red';
+				//a = prompt('Enter your name')
+				
+				// onclick ondoubleclick onmouserover onmouseout,
+				// onkeyup onkeydown onkeypress 
+				// onselect onchange onchecked onfocus onfocusout
+				
+				//single element selector
+				document.getElementById('test')
+				document.forms['form_name']['el_name'];
+				
+				// multiple element (collection/array) selector
+				document.getElementsByTagName;
+				document.getElementsByClassName;
+				document.getElementsByName;
+				
+				//show yourself:- queryselector
+				
+				a = 'ram'
+				b = ['ram']
+				
+				
+				
+				
+				a = 10;
+				var b = "10";
+				d = String(a);
+				let c = "ram";
+
+                function myFunction()
+                {
+                    pwd = document.getElementById('pw').value;
+                    cpwd = document.getElementById('cpw').value;
+                    if(pwd !== cpwd){
+                        alert('Password mismatch');
+                        return false;
+                    }
+                    return true;
+                }
+				
+            </script>
 		
 	</body>
 </html>	

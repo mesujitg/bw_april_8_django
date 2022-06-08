@@ -127,9 +127,9 @@ nav ul li:hover > ul
 #slider
 {
 	background: grey;
-	height: 300px;
 	width: 100%;
 	float: left;
+	height: 300px;
 }
 #slider img
 {
@@ -155,7 +155,7 @@ nav ul li:hover > ul
 }
 .subdisplay
 {
-	background: yellow;
+	float: left;
 	height: 280px;
 	width: 30%;
 }
@@ -163,6 +163,11 @@ nav ul li:hover > ul
 {
 	margin: 0 5%;
 }
+.subdisplay form 
+{
+	position: absolute;
+}
+
 
 footer
 {
@@ -178,7 +183,7 @@ footer p
 	margin: 5px auto;
 }
 
-/* examples */
+/* examples 
 nav + section
 {
 	border: 5px solid red;
@@ -199,3 +204,4 @@ a[target="_blank"]
 {
 	color: red;
 }
+*/
