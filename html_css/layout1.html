@@ -54,12 +54,24 @@
 			
 			<section id="display">
 				<div class="subdisplay">
-					<form method="post">
-					<input type="text" 
-					onkeyup="document.getElementsByTagName('h1')[1].innerHTML = this.value;" 
-					name="test" />
-					<input type="submit" onclick="return confirm('Are you sure')" value="Delete" />
-					</form>
+					<table>
+						<tr>
+							<th>Name</th>
+							<th>Email</th>
+							<th>Address</th>
+							<th>Name</th>
+							<th>Email</th>
+							<th>Address</th>
+						</tr>
+						<tr>
+							<td>Rohit</td>
+							<td>rohit@email.com</td>
+							<td>ktm</td>
+							<td>Rohit</td>
+							<td>rohit@email.com</td>
+							<td>ktm</td>
+						</tr>
+					</table>
 				</div>
 				<div class="subdisplay"></div>
 				<div class="subdisplay"></div>
@@ -69,6 +81,13 @@
 				<p>
 					Copyright &copy; 2022. Himalayan Tours & Travels
 				</p>
+				<form method="post">
+					<input type="text" name="name" 
+						placeholder="Email" />
+					<input type="submit" 
+						onclick="return confirm('Are you sure')" 
+						value="Subscribe" />
+				</form>
 			</footer>
 			
 			<!--

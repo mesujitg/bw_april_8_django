@@ -123,6 +123,14 @@ nav ul li:hover > ul
 	display: block;
 }
 
+@media screen and (max-width: 768px)
+{
+	nav ul li
+	{
+		float: none;
+	}
+}
+
 
 #slider
 {
@@ -155,9 +163,11 @@ nav ul li:hover > ul
 }
 .subdisplay
 {
+	background: lightblue;
 	float: left;
 	height: 280px;
 	width: 30%;
+	overflow: auto;
 }
 .subdisplay:nth-child(2)
 {
@@ -168,11 +178,40 @@ nav ul li:hover > ul
 	position: absolute;
 }
 
+.subdisplay table
+{
+	margin-top: 10px;
+}
+
+.subdisplay table, .subdisplay th, .subdisplay td
+{
+	border: 1px solid #000;
+	border-collapse: collapse;
+	padding: 5px;
+}
+
+@media screen and (max-width: 768px)
+{
+	#display
+	{
+		display: block;
+	}
+	.subdisplay
+	{
+		width: 98%;
+		margin: 10px 0;
+		padding: 1%;
+	}
+	.subdisplay:nth-child(2)
+	{
+		margin: 10px 0;
+	}
+}
+
 
 footer
 {
 	background: darkblue;
-	height: 30px;
 	width: 100%;
 	float: left;
 }
@@ -180,8 +219,27 @@ footer p
 {
 	color: #ffffff;
 	text-align: center;
-	margin: 5px auto;
+	margin: 15px;
+	float: left;
 }
+
+footer form
+{
+	margin: 10px;
+	float: right;
+}
+footer input
+{
+	padding: 5px 10px;
+	margin: auto -5px;
+	border-radius: 10px 0 0 10px;
+	border: 1px solid green;
+}
+footer input[type="submit"]
+{
+	border-radius: 0 10px 10px 0;
+}
+
 
 /* examples 
 nav + section
