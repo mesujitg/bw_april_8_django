@@ -7,6 +7,7 @@
 	</head>
 	
 	<body>
+		<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 	
 		<div id="main">
 			<header>
@@ -48,8 +49,47 @@
 			</nav>
 			
 			<section id="slider">
-				<img src="himal.jpg" alt="Slider Image" /> 
-				<h1 style="color: red;">Welcome</h1>
+				<img src="himal.jpg" alt="Slider Image" id="simg1" /> 
+				<img src="river.jpg" alt="Slider Image" id="simg2" /> 
+				<img src="wild.png" alt="Slider Image" id="simg3" /> 
+				<h1 style="color: red;" id="slider-txt">
+					Welcome
+				</h1>
+				
+				<script>
+					$(document).ready(function(){
+						//$('#slider-txt').hide(5000);
+						//$('#slider-txt').show(5000);
+						//$('#slider-txt').fadeOut(5000);
+						//$('#slider-txt').fadeIn(5000);
+						//$('#slider').slideUp(5000);
+						//$('#slider').slideDown(5000);
+						//$('#slider-txt').animate({'left': '50%', 'top': '-300px'}, 3000);
+						//$('#slider-txt').animate({'top': '-300px'}, 3000);
+						//$('#simg').hide(3000, )
+						
+						$('#simg2').css('display', 'none');
+						$('#simg3').css('display', 'none');
+						slider();
+						setInterval(slider, 20000);
+					});
+					
+					function slider()
+						{
+							$('#simg1').fadeOut(3000, function(){
+								$('#simg2').fadeIn(3000, function(){
+									$('#simg2').fadeOut(3000, function(){
+										$('#simg3').fadeIn(3000, function(){
+											$('#simg3').fadeOut(3000, function(){
+												$('#simg1').fadeIn(3000);
+											});
+										});
+									});
+								});
+							});
+						}
+				</script>
+				
 			</section>
 			
 			<section id="display">
