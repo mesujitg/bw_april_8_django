@@ -1,0 +1,51 @@
+Website
+--------
+About
+Services
+Gallery
+Sponsor
+
+News Portal
+-----------
+User
+News
+Comment
+
+Job Portal
+-----------
+User
+Organization
+Job Seeker
+Job
+Application
+
+Ecommerce/Food Ordering System
+-------------------------------
+User
+Vendor
+Customer
+Product/Food
+Order
+Cart
+Wishlist
+
+Movie Ticket Booking
+---------------------
+User
+Theatre
+Screen
+Movie
+ShowTime
+Booking
+    user
+    showtime
+    date
+    seat
+
+
+Hotel Booking System
+--------------------
+User
+Hotel
+Room
+Booking
