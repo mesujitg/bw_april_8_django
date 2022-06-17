@@ -20,12 +20,13 @@ from information import views
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    # 127.0.0.1:8000/
+    # http://127.0.0.1:8000/
     path('', views.show_home),
 
-    # path('info/', include('information.urls')),
+    path('info/', include('information.urls')),
+
     # path('organizations/', include('organizations.urls')),
-    path('jobs/', include('jobs.urls')),
+    # path('jobs/', include('jobs.urls')),
     # path('jobseekers/', include('jobseekers.urls')),
     # path('applications/', include('applications.urls')),
 ]
