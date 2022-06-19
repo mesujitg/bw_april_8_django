@@ -14,4 +14,10 @@ class Organization(models.Model):
                                      ('Other', 'Other'),
                                      ])
     details = models.TextField()
-    logo = models.ImageField()
+    logo = models.ImageField(upload_to='organizations')
+    status = models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.name
+
+

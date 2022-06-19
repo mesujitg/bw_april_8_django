@@ -1,3 +1,11 @@
 from django.contrib import admin
+from information.models import Information
 
-# Register your models here.
+
+class InformationAdmin(admin.ModelAdmin):
+    list_display = ('title', 'details', 'status')
+
+
+admin.site.register(Information, InformationAdmin)
+
+

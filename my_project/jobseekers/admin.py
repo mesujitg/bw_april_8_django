@@ -1,3 +1,5 @@
 from django.contrib import admin
+from jobseekers.models import JobSeeker
 
-# Register your models here.
+
+admin.site.register(JobSeeker)

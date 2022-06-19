@@ -12,5 +12,7 @@ class JobSeeker(models.Model):
     experience = models.TextField()
     training = models.TextField()
     skills = models.TextField()
-    cv = models.FileField()
-    image = models.ImageField()
+    cv = models.FileField(upload_to='cvs')
+    image = models.ImageField(upload_to='users')
+    status = models.BooleanField(default=True)
+
