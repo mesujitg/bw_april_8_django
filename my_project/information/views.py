@@ -7,11 +7,11 @@ def show_home(request):
 
 
 def show_about(request):
-    return HttpResponse('This is About Us Page')
+    pass
 
 
 def show_contacts(request):
-    return HttpResponse('This is Contact Us Page')
+    pass
 
 
 def show_policy(request):
