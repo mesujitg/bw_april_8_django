@@ -25,3 +25,5 @@ class Job(models.Model):
     status = models.BooleanField(default=True)
     organization = models.ForeignKey(Organization, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.title
