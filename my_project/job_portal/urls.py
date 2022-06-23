@@ -31,7 +31,7 @@ urlpatterns = [
     path('info/', include('information.urls')),
 
     # path('organizations/', include('organizations.urls')),
-    # path('jobs/', include('jobs.urls')),
+    path('jobs/', include('jobs.urls')),
     # path('jobseekers/', include('jobseekers.urls')),
     # path('applications/', include('applications.urls')),
 ]
