@@ -26,7 +26,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 
     # http://127.0.0.1:8000/
-    path('', views.show_home),
+    path('', views.show_home, name='home'),
 
     path('info/', include('information.urls')),
 

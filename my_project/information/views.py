@@ -16,7 +16,9 @@ def show_about(request):
 
 
 def show_contacts(request):
-    pass
+    info = Information.objects.filter(section__title='Contacts')
+    # info = Information.objects.filter(section_id=2)
+    return render(request, 'contacts.html', {'info': info})
 
 
 def show_policy(request):
