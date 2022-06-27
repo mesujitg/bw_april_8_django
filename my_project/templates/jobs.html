@@ -30,7 +30,7 @@
         <ul class="job-listings mb-5">
             {% for job in jobs %}
             <li class="job-listing d-block d-sm-flex pb-3 pb-sm-0 align-items-center">
-                <a href="job-single.html"></a>
+                <a href="{% url 'single_job' jid=job.id %}"></a>
                 <div class="job-listing-logo" style="height: 150px;">
                     <img src="/media/{{ job.organization.logo }}"
                          alt="Free Website Template by Free-Template.co"

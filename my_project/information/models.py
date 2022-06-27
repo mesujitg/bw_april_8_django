@@ -1,4 +1,6 @@
 from django.db import models
+from ckeditor.fields import RichTextField
+from ckeditor_uploader.fields import RichTextUploadingField
 
 
 class Section(models.Model):
@@ -12,11 +14,7 @@ class Section(models.Model):
 class Information(models.Model):
     title = models.CharField(max_length=255)
     section = models.ForeignKey(Section, on_delete=models.CASCADE, default=1)
-    # section = models.CharField(max_length=255,
-    #                            choices=[('About', 'About'),
-    #                                     ('Contacts', 'Contacts'),
-    #                                     ('Policy', 'Policy')], default='About')
-    details = models.TextField()
+    details = RichTextUploadingField()
     status = models.BooleanField(default=True)
 
     def __str__(self):

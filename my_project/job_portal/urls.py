@@ -15,6 +15,7 @@ Including another URLconf
 """
 import os.path
 
+import ckeditor_uploader.urls
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
@@ -24,14 +25,17 @@ from job_portal import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('ckeditor_upload/', include(ckeditor_uploader.urls.urlpatterns)),
 
     # http://127.0.0.1:8000/
     path('', views.show_home, name='home'),
+    path('register', views.register, name='register'),
+    path('login', views.login, name='login'),
+
 
     path('info/', include('information.urls')),
-
-    # path('organizations/', include('organizations.urls')),
     path('jobs/', include('jobs.urls')),
+    # path('organizations/', include('organizations.urls')),
     # path('jobseekers/', include('jobseekers.urls')),
     # path('applications/', include('applications.urls')),
 ]
