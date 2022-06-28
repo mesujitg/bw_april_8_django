@@ -1,3 +1,4 @@
+from django.contrib import auth, messages
 from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
@@ -20,13 +21,32 @@ def register(request):
                     username=username, password=password)
         user.save()
 
+        messages.success(request, 'User Registered Successfully.')
         return redirect('home')
     else:
         return HttpResponse('Invalid Access')
 
 
 def login(request):
-    pass
+    if request.method == 'POST':
+        username = request.POST['un']
+        password = request.POST['pw']
+
+        user = auth.authenticate(username=username, password=password)
+        if user is not None:
+            auth.login(request, user)
+            messages.success(request, 'You are logged in')
+            return redirect('home')
+        else:
+            return HttpResponse('Wrong credentials')
+    else:
+        return HttpResponse('Invalid Access')
+
+
+def logout(request):
+    auth.logout(request)
+    messages.warning(request, 'You are logged out')
+    return redirect('home')
 
 
 def show_about(request):

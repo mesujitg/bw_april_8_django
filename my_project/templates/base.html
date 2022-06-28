@@ -23,6 +23,18 @@
 </head>
 <body id="top">
 
+{% if messages %}
+<div class="alert"
+     style="position: absolute; top: 0; left: 0; width: 100%; z-index:999999;">
+    {% for message in messages %}
+    <div class="alert alert-{% if message.tags == 'error' %}danger {% else %}{{ message.tags }} {% endif %}"
+         role="alert">
+        {{ message }}
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+
 <div id="overlayer"></div>
 <div class="loader">
     <div class="spinner-border text-primary" role="status">
@@ -42,12 +54,13 @@
         <div class="site-mobile-menu-body"></div>
     </div> <!-- .site-mobile-menu -->
 
-
     <!-- NAVBAR -->
     <header class="site-navbar mt-3">
         <div class="container-fluid">
             <div class="row align-items-center">
-                <div class="site-logo col-6"><a href="{% url 'home' %}">JobBoard</a></div>
+                <div class="site-logo col-6">
+                    <a href="{% url 'home' %}">JobBoard</a>
+                </div>
 
                 <nav class="mx-auto site-navigation">
                     <ul class="site-menu js-clone-nav d-none d-xl-block ml-0 pl-0">
@@ -83,16 +96,23 @@
                                 <span class="mr-2">+</span> Post a Job
                             </a>
                         </li>
-                        <li class="d-lg-none"><a href="#">Login</a></li>
-                        <li class="d-lg-none"><a href="#">Register</a></li>
+                        <li class="d-lg-none"><a href="#" data-toggle="modal" data-target="#loginModal">Login</a></li>
+                        <li class="d-lg-none"><a href="#" data-toggle="modal" data-target="#registerModal">Register</a></li>
                     </ul>
                 </nav>
 
                 <div class="right-cta-menu text-right d-flex aligin-items-center col-6">
                     <div class="ml-auto">
-                        <a href="#" class="btn btn-outline-white border-width-2 d-none d-lg-inline-block">
-                            <span class="mr-2 icon-add"></span>Post a Job
+                        {% if request.user.is_authenticated %}
+                            {% if request.user.is_superuser or request.user.is_staff %}
+                            <a href="#" class="btn btn-outline-white border-width-2 d-none d-lg-inline-block">
+                                <span class="mr-2 icon-add"></span>Post a Job
+                            </a>
+                            {% endif %}
+                        <a href="{% url 'logout' %}" class="btn btn-primary border-width-2 d-none d-lg-inline-block">
+                            <span class="mr-2 icon-lock_outline"></span>Log Out
                         </a>
+                        {% else %}
                         <a href="#" class="btn btn-primary border-width-2 d-none d-lg-inline-block"
                             data-toggle="modal" data-target="#loginModal">
                             <span class="mr-2 icon-lock_outline"></span>Log In
@@ -101,6 +121,7 @@
                            data-toggle="modal" data-target="#registerModal">
                             <span class="mr-2 icon-user"></span>Register
                         </a>
+                        {% endif %}
                     </div>
                     <a href="#" class="site-menu-toggle js-menu-toggle d-inline-block d-xl-none mt-lg-2 ml-3"><span
                             class="icon-menu h3 m-0 p-0 mt-2"></span></a>
@@ -161,7 +182,8 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <form action="">
+                                    <form action="{% url 'login' %}" method="post">
+                                        {% csrf_token %}
                                         <div class="mb-3">
                                             <input type="text" class="form-control" name="un" placeholder="Username" required>
                                         </div>
