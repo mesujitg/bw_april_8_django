@@ -23,18 +23,6 @@
 </head>
 <body id="top">
 
-{% if messages %}
-<div class="alert"
-     style="position: absolute; top: 0; left: 0; width: 100%; z-index:999999;">
-    {% for message in messages %}
-    <div class="alert alert-{% if message.tags == 'error' %}danger {% else %}{{ message.tags }} {% endif %}"
-         role="alert">
-        {{ message }}
-    </div>
-    {% endfor %}
-</div>
-{% endif %}
-
 <div id="overlayer"></div>
 <div class="loader">
     <div class="spinner-border text-primary" role="status">
@@ -53,6 +41,28 @@
         </div>
         <div class="site-mobile-menu-body"></div>
     </div> <!-- .site-mobile-menu -->
+
+
+    {% if messages %}
+    <header class="site-navbar mt-3">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="site-logo col-6">
+                    <div class="alert"
+                         style="position: absolute; top: 0; left: 0; width: 100%; z-index:999999;">
+                        {% for message in messages %}
+                        <div class="alert alert-{% if message.tags == 'error' %}danger {% else %}{{ message.tags }} {% endif %}"
+                             role="alert">
+                            {{ message }}
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    {% endif %}
+
 
     <!-- NAVBAR -->
     <header class="site-navbar mt-3">
@@ -97,24 +107,35 @@
                             </a>
                         </li>
                         <li class="d-lg-none"><a href="#" data-toggle="modal" data-target="#loginModal">Login</a></li>
-                        <li class="d-lg-none"><a href="#" data-toggle="modal" data-target="#registerModal">Register</a></li>
+                        <li class="d-lg-none"><a href="#" data-toggle="modal" data-target="#registerModal">Register</a>
+                        </li>
                     </ul>
                 </nav>
 
                 <div class="right-cta-menu text-right d-flex aligin-items-center col-6">
                     <div class="ml-auto">
                         {% if request.user.is_authenticated %}
-                            {% if request.user.is_superuser or request.user.is_staff %}
-                            <a href="#" class="btn btn-outline-white border-width-2 d-none d-lg-inline-block">
-                                <span class="mr-2 icon-add"></span>Post a Job
-                            </a>
-                            {% endif %}
-                        <a href="{% url 'logout' %}" class="btn btn-primary border-width-2 d-none d-lg-inline-block">
-                            <span class="mr-2 icon-lock_outline"></span>Log Out
+                        {% if request.user.is_superuser or request.user.is_staff %}
+                        <a href="#" class="btn btn-outline-white border-width-2 d-none d-lg-inline-block">
+                            <span class="mr-2 icon-add"></span>Post a Job
                         </a>
+                        {% endif %}
+                        <div class="dropdown d-inline">
+                            <button class="btn btn-primary border-width-2 d-none d-lg-inline-block dropdown-toggle" type="button" id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-expanded="false">
+                                <span class="mr-2 icon-user"></span> {{ request.user }} &dtrif;
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="{% url 'profile' %}">Profile</a>
+                                <a class="dropdown-item" href="{% url 'logout' %}">Log Out</a>
+                            </div>
+                        </div>
+<!--                        <a href="{% url 'logout' %}" class="btn btn-primary border-width-2 d-none d-lg-inline-block">-->
+<!--                            <span class="mr-2 icon-lock_outline"></span>Log Out-->
+<!--                        </a>-->
                         {% else %}
                         <a href="#" class="btn btn-primary border-width-2 d-none d-lg-inline-block"
-                            data-toggle="modal" data-target="#loginModal">
+                           data-toggle="modal" data-target="#loginModal">
                             <span class="mr-2 icon-lock_outline"></span>Log In
                         </a>
                         <a href="#" class="btn btn-primary border-width-2 d-none d-lg-inline-block"
@@ -141,22 +162,28 @@
                                     <form action="{% url 'register' %}" method="post">
                                         {% csrf_token %}
                                         <div class="mb-3">
-                                            <input type="text" class="form-control" name="fn" placeholder="First Name" required>
+                                            <input type="text" class="form-control" name="fn" placeholder="First Name"
+                                                   required>
                                         </div>
                                         <div class="mb-3">
-                                            <input type="text" class="form-control" name="ln" placeholder="Last Name" required>
+                                            <input type="text" class="form-control" name="ln" placeholder="Last Name"
+                                                   required>
                                         </div>
                                         <div class="mb-3">
-                                            <input type="email" class="form-control" name="em" placeholder="Email" required>
+                                            <input type="email" class="form-control" name="em" placeholder="Email"
+                                                   required>
                                         </div>
                                         <div class="mb-3">
-                                            <input type="text" class="form-control" name="un" placeholder="Username" required>
+                                            <input type="text" class="form-control" name="un" placeholder="Username"
+                                                   required>
                                         </div>
                                         <div class="mb-3">
-                                            <input type="password" class="form-control" name="pw" placeholder="Password" required>
+                                            <input type="password" class="form-control" name="pw" placeholder="Password"
+                                                   required>
                                         </div>
                                         <div class="mb-3">
-                                            <input type="password" class="form-control" name="cpw" placeholder="Confirm Password" required>
+                                            <input type="password" class="form-control" name="cpw"
+                                                   placeholder="Confirm Password" required>
                                         </div>
                                         <div class="mb-3">
                                             <input type="submit" class="btn btn-primary" value="Register">
@@ -185,10 +212,12 @@
                                     <form action="{% url 'login' %}" method="post">
                                         {% csrf_token %}
                                         <div class="mb-3">
-                                            <input type="text" class="form-control" name="un" placeholder="Username" required>
+                                            <input type="text" class="form-control" name="un" placeholder="Username"
+                                                   required>
                                         </div>
                                         <div class="mb-3">
-                                            <input type="password" class="form-control" name="pw" placeholder="Password" required>
+                                            <input type="password" class="form-control" name="pw" placeholder="Password"
+                                                   required>
                                         </div>
                                         <div class="mb-3">
                                             <input type="submit" class="btn btn-primary" value="Login">

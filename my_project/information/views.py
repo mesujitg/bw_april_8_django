@@ -1,11 +1,16 @@
 from django.contrib import auth, messages
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from information.models import Information
+from jobs.models import Job
+from organizations.models import Organization
 
 
 def show_home(request):
+    org = Organization.objects.all()
+    jobs = Job.objects.count()
     return render(request, 'index.html')
 
 
@@ -47,6 +52,33 @@ def logout(request):
     auth.logout(request)
     messages.warning(request, 'You are logged out')
     return redirect('home')
+
+
+@login_required
+def profile(request):
+    # if not request.user.is_authenticated:
+    #     messages.error(request, 'Invalid Access')
+    #     return redirect('home')
+
+    if request.method == 'POST':
+        first_name = request.POST['fn']
+        last_name = request.POST['ln']
+        email = request.POST['em']
+        username = request.POST['un']
+        password = request.POST['pw']
+
+        # job = Job.objects.get(id=jid)
+        user = request.user
+        user.first_name = first_name
+        user.last_name = last_name
+        user.email = email
+        user.username = username
+        user.password = password
+        user.save()
+
+        messages.success(request, 'Profile Updated')
+
+    return render(request, 'profile.html')
 
 
 def show_about(request):

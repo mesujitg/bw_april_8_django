@@ -59,6 +59,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'job_portal.urls'
+LOGIN_URL = 'home'
+# LOGIN_REDIRECT_URL = 'home'
 
 TEMPLATES = [
     {
