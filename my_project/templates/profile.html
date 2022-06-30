@@ -44,15 +44,38 @@
                     </div>
                     <div class="mb-3">
                         <input type="password" class="form-control" name="pw" placeholder="Password"
-                               value="{{ request.user.password }}" required>
+                               value="{{ request.user.password }}" id="pw" required>
+                        <button type="button" id="show" style="position: relative;left: 45%; top: -35px;">
+                            <span class="mr-2 icon-eye"></span>
+                        </button>
                     </div>
                     <div class="mb-3">
                         <input type="password" class="form-control" name="cpw" placeholder="Confirm Password"
-                               value="{{ request.user.password }}" required>
+                               value="{{ request.user.password }}" id="cpw" required>
                     </div>
                     <div class="mb-3">
-                        <input type="submit" class="btn btn-primary" value="Update">
+                        <input type="submit" class="btn btn-primary" value="Update" id="btnUpdate">
                     </div>
+
+                    <script>
+                        $('#show').click(function (){
+                            if ($('#pw').attr('type') == 'password')
+                                $('#pw').attr('type', 'text');
+                            else
+                                $('#pw').attr('type', 'password');
+                        });
+
+                        $('#btnUpdate').click(function (){
+                            if ($('#pw').val() !== $('#cpw').val()) {
+                                alert('password mismatch');
+                                return false;
+                            }
+                            else
+                                return true;
+                        });
+
+                    </script>
+
                 </form>
             </div>
         </div>
