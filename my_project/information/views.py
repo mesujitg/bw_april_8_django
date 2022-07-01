@@ -6,7 +6,6 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from applications.models import Application
 from information.models import Information
-from job_portal.settings import MEDIA_URL
 from jobs.models import Job
 from jobseekers.models import JobSeeker
 from organizations.models import Organization
@@ -19,7 +18,7 @@ def show_home(request):
     filled = Application.objects.filter(status='Selected').count()
     stats = [candidates, job, filled, len(org)]
     jobs = Job.objects.order_by('-id')[:10]
-    return render(request, 'index.html', {'organizations': org, 'stats': stats, 'jobs': jobs, 'MEDIA_URL': MEDIA_URL})
+    return render(request, 'index.html', {'organizations': org, 'stats': stats, 'jobs': jobs})
 
 
 def register(request):

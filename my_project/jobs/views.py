@@ -12,3 +12,15 @@ def show_single_job(request, jid):
     job = Job.objects.get(id=jid)
     return render(request, 'job-single.html', {'job': job})
 
+
+def show_job_by_category(request, category):
+    jobs = Job.objects.filter(category_id=category)
+    return render(request, 'jobs.html', {'jobs': jobs})
+
+
+def show_job_by_search(request):
+    key = request.GET['key']
+    tp = request.GET['type']
+    location = request.GET['location']
+    jobs = Job.objects.filter(title__icontains=key).filter(type=tp).filter(organization__address=location)
+    return render(request, 'jobs.html', {'jobs': jobs})
