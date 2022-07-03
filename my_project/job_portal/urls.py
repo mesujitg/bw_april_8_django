@@ -29,12 +29,8 @@ urlpatterns = [
 
     # http://127.0.0.1:8000/
     path('', views.show_home, name='home'),
-    path('register', views.register, name='register'),
-    path('login', views.login, name='login'),
-    path('logout', views.logout, name='logout'),
-    path('profile', views.profile, name='profile'),
 
-
+    path('account/', include('accounts.urls')),
     path('info/', include('information.urls')),
     path('jobs/', include('jobs.urls')),
     # path('organizations/', include('organizations.urls')),
