@@ -164,7 +164,7 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <form action="{% url 'register' %}" method="post">
+                                    <form action="{% url 'register' %}" method="post" enctype="multipart/form-data">
                                         {% csrf_token %}
                                         <div class="mb-3">
                                             <input type="text" class="form-control" name="fn" placeholder="First Name"
@@ -208,6 +208,31 @@
                                         <div class="mb-3">
                                             <input type="password" class="form-control" name="cpw"
                                                    placeholder="Confirm Password" required>
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <textarea class="form-control" placeholder="Qualification"
+                                                      name="qualification" required></textarea>
+                                        </div>
+                                        <div class="mb-3">
+                                            <textarea class="form-control" placeholder="Experience"
+                                                      name="experience" required></textarea>
+                                        </div>
+                                        <div class="mb-3">
+                                            <textarea class="form-control" placeholder="Trainings"
+                                                      name="trainings" required></textarea>
+                                        </div>
+                                        <div class="mb-3">
+                                            <textarea class="form-control" placeholder="Skills"
+                                                      name="skills" required></textarea>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="">CV</label>
+                                            <input type="file" class="form-control" name="cv" required />
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="">Image</label>
+                                            <input type="file" class="form-control" name="image" required />
                                         </div>
                                         <div class="mb-3">
                                             <input type="submit" class="btn btn-primary" value="Register">

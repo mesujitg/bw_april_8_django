@@ -12,3 +12,10 @@ class JobSeeker(models.Model):
     status = models.BooleanField(default=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
 
+
+# class Qualification(models.Model):
+#     jobseeker = models.ForeignKey(JobSeeker, on_delete=models.CASCADE)
+#     title = models.CharField(max_length=255)
+#     passed_year = models.DateField()
+#     board = models.CharField(max_length=255)
+#     grade = models.CharField(max_length=255)

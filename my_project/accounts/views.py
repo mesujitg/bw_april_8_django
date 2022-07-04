@@ -4,6 +4,7 @@ from django.contrib.auth.hashers import make_password
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from accounts.models import User
+from jobseekers.models import JobSeeker
 
 
 def register(request):
@@ -18,10 +19,21 @@ def register(request):
         username = request.POST['un']
         password = make_password(request.POST['pw'])
 
+        qualification = request.POST['qualification']
+        experience = request.POST['experience']
+        trainings = request.POST['trainings']
+        skills = request.POST['skills']
+        cv = request.FILES['cv']
+        image = request.FILES['image']
+
         user = User(first_name=first_name, last_name=last_name, email=email,
                     username=username, password=password, gender=gender, dob=dob,
                     address=address, mobile=mobile)
         user.save()
+
+        js = JobSeeker(qualification=qualification, experience=experience,
+                       training=trainings, skills=skills, cv=cv, image=image, user=user)
+        js.save()
 
         messages.success(request, 'User Registered Successfully.')
         return redirect('home')

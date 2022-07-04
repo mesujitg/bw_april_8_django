@@ -1,5 +1,7 @@
 from django.db import models
 
+from accounts.models import User
+
 
 class Organization(models.Model):
     name = models.CharField(max_length=255)
@@ -21,3 +23,6 @@ class Organization(models.Model):
         return self.name
 
 
+class OrgUser(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    org = models.ForeignKey(Organization, on_delete=models.CASCADE)
