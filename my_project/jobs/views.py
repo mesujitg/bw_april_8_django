@@ -1,3 +1,4 @@
+from django.db.models import Q
 from django.http import HttpResponse
 from django.shortcuts import render
 from jobs.models import Job
@@ -22,5 +23,6 @@ def show_job_by_search(request):
     key = request.GET['key']
     tp = request.GET['type']
     location = request.GET['location']
-    jobs = Job.objects.filter(title__icontains=key).filter(type=tp).filter(organization__address=location)
+    # jobs = Job.objects.filter(Q(title__icontains=key) | Q(type__icontains=tp) | Q(organization__address__icontains=location))
+    jobs = Job.objects.filter(title__icontains=key).filter(type__icontains=tp).filter(organization__address__icontains=location)
     return render(request, 'jobs.html', {'jobs': jobs})

@@ -7,3 +7,4 @@ class User(AbstractUser):
     gender = models.CharField(max_length=100, null=True, blank=True)
     address = models.CharField(max_length=100, null=True, blank=True)
     mobile = models.CharField(max_length=100, null=True, blank=True)
+    is_organization = models.BooleanField(default=False)

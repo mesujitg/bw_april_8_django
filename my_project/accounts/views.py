@@ -5,6 +5,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from accounts.models import User
 from jobseekers.models import JobSeeker
+from organizations.models import Organization, OrgUser
 
 
 def register(request):
@@ -37,6 +38,21 @@ def register(request):
 
         messages.success(request, 'User Registered Successfully.')
         return redirect('home')
+    else:
+        return HttpResponse('Invalid Access')
+
+
+def organization_registration(request):
+    if request.method == 'POST':
+        # take all values from form
+        user = User(email='', username='', password='')
+        user.save()
+
+        org = Organization(name='', address='', phone='', email='', type='', details='', logo='')
+        org.save()
+
+        org_user = OrgUser(user=user, org=org)
+        org_user.save()
     else:
         return HttpResponse('Invalid Access')
 
