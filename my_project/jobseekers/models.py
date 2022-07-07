@@ -12,6 +12,9 @@ class JobSeeker(models.Model):
     status = models.BooleanField(default=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
 
+    def __str__(self):
+        return self.user.username
+
 
 # class Qualification(models.Model):
 #     jobseeker = models.ForeignKey(JobSeeker, on_delete=models.CASCADE)

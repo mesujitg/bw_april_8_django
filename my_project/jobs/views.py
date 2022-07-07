@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from django.db.models import Q
 from django.http import HttpResponse
 from django.shortcuts import render
@@ -5,7 +7,7 @@ from jobs.models import Job
 
 
 def show_jobs(request):
-    jobs = Job.objects.all()
+    jobs = Job.objects.filter(deadline__gte=datetime.now())
     return render(request, 'jobs.html', {'jobs': jobs})
 
 
