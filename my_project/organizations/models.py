@@ -21,6 +21,9 @@ class Organization(models.Model):
     def __str__(self):
         return self.name
 
+    class Meta:
+        verbose_name = 'Categorie'
+
 
 class OrgUser(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)

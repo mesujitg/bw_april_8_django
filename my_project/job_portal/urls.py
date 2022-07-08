@@ -21,7 +21,7 @@ from django.contrib import admin
 from django.urls import path, include
 from information import views
 from job_portal import settings
-
+from .routers import router
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -36,6 +36,8 @@ urlpatterns = [
     # path('organizations/', include('organizations.urls')),
     # path('jobseekers/', include('jobseekers.urls')),
     path('applications/', include('applications.urls')),
+
+    path('api/', include(router.urls))
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
